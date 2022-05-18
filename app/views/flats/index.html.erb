@@ -1,0 +1,23 @@
+<h1>All our flats (<%= @flats.count %>)</h1>
+
+<section class='row d-flex'>
+    <% @flats.each do |i| %>
+      <div class="card col-md-3" style="width: 22rem;">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= i.name %></h5>
+        <p class="card-text"><%= i.address %></p>
+        <p class="card-text"><%= i.description %></p>
+        <div style='display:flex; align-items:center; justify-content:space-between'>
+          <p class="card-text">people: <%= i.number_of_guests %></p>
+          <p class="card-text"><%= i.price_per_night %>$</p>
+        </div>
+        <div style='tex-align:bottom'>
+          <%= link_to 'More info', flat_path(i) %>
+          <%= link_to 'Edit', edit_flat_path(i) %>
+          <%= link_to 'Remove', flat_path(i), method: :delete %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</section>

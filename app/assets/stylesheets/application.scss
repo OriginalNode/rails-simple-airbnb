@@ -1,0 +1,41 @@
+/*
+ *= require mapbox-gl
+ */
+
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+
+section {
+  align-items: center;
+  justify-content: space-around;
+}
+
+.card.col-md-3 {
+  height: 20em;
+  margin: 8px;
+}
+
+nav {
+  background-color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}

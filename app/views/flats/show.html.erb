@@ -1,0 +1,29 @@
+<script>
+	// TO MAKE THE MAP APPEAR YOU MUST
+	// ADD YOUR ACCESS TOKEN FROM
+	// https://account.mapbox.com
+  const url = '<%= @url %>'
+  const token = '<%= @token %>'
+	fetch(url)
+      .then(response => response.json())
+      .then((data) => {
+        mapboxgl.accessToken = token;
+        const map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v11',
+          center: data.features[0].center,
+          zoom: 8
+        });
+        new mapboxgl.Marker()
+          .setLngLat(data.features[0].center)
+          .addTo(map);
+      });
+</script>
+
+<div id="map" style="height: 300px; width: 600px"></div>
+<h1>Your selection</h1>
+
+
+<%= @flat.name %>
+<%= @flat.address %>
+<%= @flat.description %>
